@@ -20,7 +20,7 @@ public class CarParser {
 			while (scanner.hasNextLine()){
 				line = scanner.nextLine(); // get the line
 				String[] results = line.split(","); // split it on ,
-				if(results[0].trim().isEmpty()){
+				if(results.length < 13){
 					scanner.close();
 					return cars;					
 				}
