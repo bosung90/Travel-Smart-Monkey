@@ -164,10 +164,52 @@ public class Sample implements EntryPoint {
 
 			@Override
 			public void onSuccess(ResultFields result) {
+				RootPanel.get("travelTable").clear();
+				table.setHTML("	<table class=\"table table-bordered\">\n" + 
+						"	<tr>\n" + 
+						"    <td>Mode of Travel</td>\n" + 
+						"    <td>Pros</td>		\n" + 
+						"    <td>Cons</td>\n" + 
+						"    <td>Cost</td>\n" + 
+						"    <td>Time</td>\n" + 
+						"    <td>CO2 Emission</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Car</td>\n" + 
+						"    <td>" + result.getCarPros()+ "</td>\n" + 
+						"    <td>" + result.getCarCons()+ "</td>\n" + 
+						"    <td>" + result.getCarCost() + "</td>\n" + 
+						"    <td>" + result.getCarTime()+ "</td>\n" + 
+						"    <td>" + result.getCarCO2()+ "</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Bus</td>\n" + 
+						"    <td></td>		\n" + 
+						"    <td></td>\n" + 
+						"    <td></td>\n" + 
+						"    <td>" + result.getBusTime() + "</td>\n" + 
+						"    <td>" + result.getBusCO2()+ "</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"      <td>Bicyle</td>\n" + 
+						"    <td>"+ result.getBikePros()+ "</td>\n" + 
+						"    <td>" + result.getBikeCons()+ "</td>\n" + 
+						"    <td>" + result.getBikeCost()+"</td>\n" + 
+						"    <td>" + result.getBikeTime()+ "</td>\n" + 
+						"    <td>" + result.getBikeCO2() + "</td>\n" + 
+						"  </tr>\n" + 
+						"    <tr>\n" + 
+						"      <td>Walk</td>\n" + 
+						"    <td>"+ result.getWalkPros()+ "</td>\n" + 
+						"    <td>"+ result.getWalkCons()+ "</td>\n" + 
+						"    <td>"+ result.getWalkCost()+"</td>\n" + 
+						"    <td>" + result.getWalkTime()+"</td>\n" + 
+						"    <td>" + result.getWalkCO2()+ "</td>\n" + 
+						"  </tr>\n" + 
+						"\n" + 
+						"</table>");
 				
-				
-				
-				
+				RootPanel.get("travelTable").add(table);	
 			}
 		};
 	}
