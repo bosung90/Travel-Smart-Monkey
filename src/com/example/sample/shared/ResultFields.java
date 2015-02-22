@@ -17,9 +17,9 @@ public class ResultFields implements Serializable{
 	
 	private String carCost, transitCost, bikeCost, walkCost;
 	
-	private String carTime, busTime, bikeTime, walkTime;
+	private String carTime, transitTime, bikeTime, walkTime;
 	
-	private String carCO2, busCO2, bikeCO2, walkCO2;
+	private String carCO2, transitCO2, bikeCO2, walkCO2;
 
 	public String getCarPros() {
 		return carPros;
@@ -74,7 +74,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public String getBusTime() {
-		return busTime;
+		return transitTime;
 	}
 
 	public String getBikeTime() {
@@ -90,7 +90,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public String getBusCO2() {
-		return busCO2;
+		return transitCO2;
 	}
 
 	public String getBikeCO2() {
@@ -154,7 +154,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public void setBusTime(String busTime) {
-		this.busTime = busTime;
+		this.transitTime = busTime;
 	}
 
 	public void setBikeTime(String bikeTime) {
@@ -170,7 +170,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public void setBusCO2(String busCO2) {
-		this.busCO2 = busCO2;
+		this.transitCO2 = busCO2;
 	}
 
 	public void setBikeCO2(String bikeCO2) {

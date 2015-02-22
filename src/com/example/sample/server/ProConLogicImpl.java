@@ -1,7 +1,6 @@
 package com.example.sample.server;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 import com.example.sample.shared.ResultFields;
 
@@ -104,7 +103,7 @@ public class ProConLogicImpl {
 		else if(s == 3)
 			return LongestDistance;
 		else
-			return "NULL";
+			return none;
 			
 	}
 	
@@ -118,7 +117,7 @@ public class ProConLogicImpl {
 		else if(s == 3)
 			return time4;
 		else
-			return "NULL";
+			return none;
 			
 	}
 
