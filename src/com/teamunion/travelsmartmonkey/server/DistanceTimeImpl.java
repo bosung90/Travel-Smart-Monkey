@@ -16,11 +16,15 @@ import com.google.gson.JsonParser;
 public class DistanceTimeImpl {
 	
 
-	private void GetDistandTime() throws Exception {
+	private void GetDistandTime(String origin, String dest, String mode) throws Exception {
 		
+		String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin + 
+				"&destinations=" + dest + "&mode=" + mode + "&language=fr-EN";
+		final String key = "AIzaSyCISEYz0RnyfORigxu4y_5jRQIWJbJWJIU";
 		//Test case
-		String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=2388+Western+parkway+vancouver&destinations=Joyce+Station+Vancouver&mode=walking&language=fr-EN";
- 
+		if(mode.equals("transit"))
+			url = url +"&key=" + key;
+
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
  
