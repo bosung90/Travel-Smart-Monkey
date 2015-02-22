@@ -8,9 +8,9 @@ import com.teamunion.travelsmartmonkey.shared.CarData;
 
 public class CarParser {
 	
-	public ArrayList<CarData> cars = new ArrayList<CarData>();
+	public static ArrayList<CarData> cars = new ArrayList<CarData>();
 	
-	public ArrayList<CarData> parseFuelConsumption(String filepath){
+	public static ArrayList<CarData> parseFuelConsumption(String filepath){
 		try {
 			Scanner scanner = new Scanner(new FileReader(filepath));
 			String line;
@@ -29,6 +29,9 @@ public class CarParser {
 				String model = results[2];
 				double fuelConsumption = Double.parseDouble(results[10]);
 				double co2Emission = Double.parseDouble(results[12]);	
+				
+				System.out.println(year + " " + make + " "+ model + " " + fuelConsumption + " " + co2Emission) ;
+
 				
 				// create the car data
 				data = new CarData(year,make,model,fuelConsumption,co2Emission);

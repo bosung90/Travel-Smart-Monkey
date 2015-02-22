@@ -50,6 +50,11 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
 	@Override
 	public ResultFields greetServer(SearchFields search) {
+		
+		System.out.println("running");
+		
+		CarParser.parseFuelConsumption("data/Fuel2001.csv");
+		
 		return null;
 	}
 }
