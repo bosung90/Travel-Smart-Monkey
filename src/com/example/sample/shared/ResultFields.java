@@ -10,10 +10,10 @@ public class ResultFields implements Serializable{
 	 */
 	private static final long serialVersionUID = 6998109621977333533L;
 	
-	private String carPros, carCons;
-	private String transitPros, transitCons;
-	private String bikePros, bikeCons;
-	private String walkPros, walkCons;
+	private String carPros, carCons, carDist;
+	private String transitPros, transitCons, transitDist;
+	private String bikePros, bikeCons, bikeDist;
+	private String walkPros, walkCons, walkDist;
 	
 	private String carCost, transitCost, bikeCost, walkCost;
 	
@@ -179,6 +179,38 @@ public class ResultFields implements Serializable{
 
 	public void setWalkCO2(String walkCO2) {
 		this.walkCO2 = walkCO2;
+	}
+
+	public String getWalkDist() {
+		return walkDist;
+	}
+
+	public void setWalkDist(String walkDist) {
+		this.walkDist = walkDist;
+	}
+
+	public String getBikeDist() {
+		return bikeDist;
+	}
+
+	public void setBikeDist(String bikeDist) {
+		this.bikeDist = bikeDist;
+	}
+
+	public String getTransitDist() {
+		return transitDist;
+	}
+
+	public void setTransitDist(String transitDist) {
+		this.transitDist = transitDist;
+	}
+
+	public String getCarDist() {
+		return carDist;
+	}
+
+	public void setCarDist(String carDist) {
+		this.carDist = carDist;
 	}
 
 }
