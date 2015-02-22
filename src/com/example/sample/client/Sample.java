@@ -15,6 +15,8 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
 /**
@@ -29,6 +31,7 @@ public class Sample implements EntryPoint {
 	private final TextBox _startingPoint = TextBox.wrap(DOM.getElementById("startingPoint"));
 	private final TextBox _destination = TextBox.wrap(DOM.getElementById("destination"));
 	private final Button _searchButton = Button.wrap(DOM.getElementById("searchBtn"));
+	private final HTML table = new HTML();
 	//==========================================
 	
 	private Geolocation _geoposition; 
@@ -57,6 +60,53 @@ public class Sample implements EntryPoint {
 	public void onModuleLoad(){
 		RefreshCurrentGPSLocation();
 		_searchButton.addClickHandler(new SearchButtonClickHandler());
+		
+		table.setHTML("	<table class=\"table table-bordered\">\n" + 
+				"	<tr>\n" + 
+				"    <td>Mode of Travel</td>\n" + 
+				"    <td>Pros</td>		\n" + 
+				"    <td>Cons</td>\n" + 
+				"    <td>Cost</td>\n" + 
+				"    <td>Time</td>\n" + 
+				"    <td>CO2 Emission</td>\n" + 
+				"  </tr>\n" + 
+				"  <tr>\n" + 
+				"    <td>Car</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"  <tr>\n" + 
+				"    <td>Bus</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"  <tr>\n" + 
+				"      <td>Bicyle</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"    <tr>\n" + 
+				"      <td>Walk</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"\n" + 
+				"</table>");
+		
+		RootPanel.get("travelTable").add(table);
+		
 		
 		
 		//		final Button sendButton = new Button("Send");
