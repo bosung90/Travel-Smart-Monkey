@@ -12,7 +12,7 @@ import com.google.gson.JsonParser;
 
 public class DistanceTimeImpl {
 
-    public String[] GetDistandTime(String origin, String dest, String mode) throws Exception {
+    public static String[] GetDistandTime(String origin, String dest, String mode) throws Exception {
         
         String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin + 
                 "&destinations=" + dest + "&mode=" + mode + "&language=fr-EN";
@@ -50,7 +50,7 @@ public class DistanceTimeImpl {
  
     }
     
-    private String[] parseJson(String s) {
+    private static String[] parseJson(String s) {
                 
         JsonElement jelement = new JsonParser().parse(s);
         JsonObject jobject = jelement.getAsJsonObject();

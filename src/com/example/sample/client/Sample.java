@@ -106,16 +106,20 @@ public class Sample implements EntryPoint {
 		//		});
 
 
-//		travelSmartService = new AsyncCallback<ResultFields>(){
-//			@Override
-//			public void onFailure(Throwable caught) {
-//				System.out.println(caught.getMessage());
-//			}
-//
-//			@Override
-//			public void onSuccess(ResultFields result) {
-//			}
-//		};
+		travelSmartService = new AsyncCallback<ResultFields>(){
+			@Override
+			public void onFailure(Throwable caught) {
+				System.out.println(caught.getMessage());
+			}
+
+			@Override
+			public void onSuccess(ResultFields result) {
+				
+				
+				
+				
+			}
+		};
 	}
 	
 	private class SearchButtonClickHandler implements ClickHandler {
@@ -143,8 +147,6 @@ public class Sample implements EntryPoint {
 			search.setDestination(end);
 			
 			greetingService.greetServer(search, travelSmartService);
-			
-//			callGoogleDirectionAPI(start,end);
 
 		}
 	}
