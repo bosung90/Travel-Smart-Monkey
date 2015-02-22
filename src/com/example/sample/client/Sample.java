@@ -219,8 +219,6 @@ public class Sample implements EntryPoint {
 		public void onClick(ClickEvent event) 
 		{
 			
-			Window.alert("click be determined!");
-			
 			String car = _carModel.getText();
 			String start = _startingPoint.getText();
 			String end = _destination.getText();
