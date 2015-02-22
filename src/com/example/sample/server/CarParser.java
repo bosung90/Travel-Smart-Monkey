@@ -30,7 +30,7 @@ public class CarParser {
 				double fuelConsumption = Double.parseDouble(results[10]);
 				double co2Emission = Double.parseDouble(results[12]);	
 				
-//				System.out.println(year + " " + make + " "+ model + " " + fuelConsumption + " " + co2Emission) ;
+				System.out.println(year + " " + make + " "+ model + " " + fuelConsumption + " " + co2Emission) ;
 
 				
 				// create the car data
