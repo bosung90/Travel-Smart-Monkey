@@ -10,16 +10,16 @@ public class ResultFields implements Serializable{
 	 */
 	private static final long serialVersionUID = 6998109621977333533L;
 	
-	private String carPros, carCons;
-	private String transitPros, transitCons;
-	private String bikePros, bikeCons;
-	private String walkPros, walkCons;
+	private String carPros, carCons, carDist;
+	private String transitPros, transitCons, transitDist;
+	private String bikePros, bikeCons, bikeDist;
+	private String walkPros, walkCons, walkDist;
 	
 	private String carCost, transitCost, bikeCost, walkCost;
 	
-	private String carTime, busTime, bikeTime, walkTime;
+	private String carTime, transitTime, bikeTime, walkTime;
 	
-	private String carCO2, busCO2, bikeCO2, walkCO2;
+	private String carCO2, transitCO2, bikeCO2, walkCO2;
 
 	public String getCarPros() {
 		return carPros;
@@ -74,7 +74,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public String getBusTime() {
-		return busTime;
+		return transitTime;
 	}
 
 	public String getBikeTime() {
@@ -90,7 +90,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public String getBusCO2() {
-		return busCO2;
+		return transitCO2;
 	}
 
 	public String getBikeCO2() {
@@ -154,7 +154,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public void setBusTime(String busTime) {
-		this.busTime = busTime;
+		this.transitTime = busTime;
 	}
 
 	public void setBikeTime(String bikeTime) {
@@ -170,7 +170,7 @@ public class ResultFields implements Serializable{
 	}
 
 	public void setBusCO2(String busCO2) {
-		this.busCO2 = busCO2;
+		this.transitCO2 = busCO2;
 	}
 
 	public void setBikeCO2(String bikeCO2) {
@@ -179,6 +179,38 @@ public class ResultFields implements Serializable{
 
 	public void setWalkCO2(String walkCO2) {
 		this.walkCO2 = walkCO2;
+	}
+
+	public String getWalkDist() {
+		return walkDist;
+	}
+
+	public void setWalkDist(String walkDist) {
+		this.walkDist = walkDist;
+	}
+
+	public String getBikeDist() {
+		return bikeDist;
+	}
+
+	public void setBikeDist(String bikeDist) {
+		this.bikeDist = bikeDist;
+	}
+
+	public String getTransitDist() {
+		return transitDist;
+	}
+
+	public void setTransitDist(String transitDist) {
+		this.transitDist = transitDist;
+	}
+
+	public String getCarDist() {
+		return carDist;
+	}
+
+	public void setCarDist(String carDist) {
+		this.carDist = carDist;
 	}
 
 }
