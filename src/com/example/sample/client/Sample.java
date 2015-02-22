@@ -56,7 +56,7 @@ public class Sample implements EntryPoint {
 	 */
 	public void onModuleLoad(){
 		RefreshCurrentGPSLocation();
-//		searchButton.addClickHandler(new SearchButtonClickHandler());
+		_searchButton.addClickHandler(new SearchButtonClickHandler());
 		
 		
 		//		final Button sendButton = new Button("Send");
@@ -118,36 +118,36 @@ public class Sample implements EntryPoint {
 //		};
 	}
 	
-//	private class SearchButtonClickHandler implements ClickHandler {
-//
-//		public void onClick(ClickEvent event) 
-//		{
-//			
-//			Window.alert("click be determined!");
-//			
-//			String car = carModel.getText();
-//			String start = startingPoint.getText();
-//			String end = destination.getText();
-//
-//			SearchFields search = new SearchFields();
-//			
-//			search.setCarType(car);
-//			if(start.trim().isEmpty())
-//			{
-//				search.setStartingPoint(_latitude + "," + _longitude);
-//			}
-//			else
-//			{
-//				search.setStartingPoint(start);
-//			}
-//			search.setDestination(end);
-//			
-//			greetingService.greetServer(search, travelSmartService);
-//			
-////			callGoogleDirectionAPI(start,end);
-//
-//		}
-//	}
+	private class SearchButtonClickHandler implements ClickHandler {
+
+		public void onClick(ClickEvent event) 
+		{
+			
+			Window.alert("click be determined!");
+			
+			String car = _carModel.getText();
+			String start = _startingPoint.getText();
+			String end = _destination.getText();
+
+			SearchFields search = new SearchFields();
+			
+			search.setCarType(car);
+			if(start.trim().isEmpty())
+			{
+				search.setStartingPoint(_latitude + "," + _longitude);
+			}
+			else
+			{
+				search.setStartingPoint(start);
+			}
+			search.setDestination(end);
+			
+			greetingService.greetServer(search, travelSmartService);
+			
+//			callGoogleDirectionAPI(start,end);
+
+		}
+	}
 	
 //	private class RefreshClickHandler implements ClickHandler{
 //		@Override
