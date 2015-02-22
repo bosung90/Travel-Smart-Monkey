@@ -161,6 +161,7 @@ public class Travel_Smart_Monkey implements EntryPoint {
 		_geoposition = Geolocation.getIfSupported();
 		if (_geoposition == null) {
 			Window.alert("Sorry, your browser doesn't support the Geolocation feature!");
+			return;
 		}
 
 		_geoposition.getCurrentPosition(new CurrentPositionCallBack());
