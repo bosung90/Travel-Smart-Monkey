@@ -1,8 +1,10 @@
 package com.teamunion.travelsmartmonkey.server;
 
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.teamunion.travelsmartmonkey.client.GreetingService;
 import com.teamunion.travelsmartmonkey.shared.FieldVerifier;
-import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import com.teamunion.travelsmartmonkey.shared.ResultFields;
+import com.teamunion.travelsmartmonkey.shared.SearchFields;
 
 /**
  * The server-side implementation of the RPC service.
@@ -44,5 +46,10 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 		}
 		return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
 				.replaceAll(">", "&gt;");
+	}
+
+	@Override
+	public ResultFields greetServer(SearchFields search) {
+		return null;
 	}
 }
