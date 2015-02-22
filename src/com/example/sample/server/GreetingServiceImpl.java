@@ -1,6 +1,9 @@
 package com.example.sample.server;
 
+import java.util.Hashtable;
+
 import com.example.sample.client.GreetingService;
+import com.example.sample.shared.CarData;
 import com.example.sample.shared.ResultFields;
 import com.example.sample.shared.SearchFields;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -15,9 +18,22 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 	@Override
 	public ResultFields greetServer(SearchFields search) {
 		
-		System.out.println("running");
+		Hashtable<String, CarData> d = new Hashtable<String, CarData>();
 		
-		CarParser.parseFuelConsumption("data/Fuel2001.csv");
+		Hashtable<String, CarData> a = CarParser.parseFuelConsumption("data/MY1995-1999.csv");
+		d.putAll(a);
+		for(int i=2000; i<=2015; i++)
+		{
+			Hashtable<String, CarData> b = CarParser.parseFuelConsumption("data/MY"+i+".csv");
+			d.putAll(b);
+		}
+		
+		String carModel = search.getCarType();
+		//find carModel in one of the CarData.
+		
+		CarData car = d.get(carModel);
+		
+		
 		
 		return null;
 	}
