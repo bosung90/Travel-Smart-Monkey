@@ -184,9 +184,9 @@ public class Sample implements EntryPoint {
 						"  </tr>\n" + 
 						"  <tr>\n" + 
 						"    <td>Bus</td>\n" + 
-						"    <td></td>		\n" + 
-						"    <td></td>\n" + 
-						"    <td></td>\n" + 
+						"    <td>" + result.getTransitPros()+ "</td>\n" + 
+						"    <td>" + result.getTransitCons()+ "</td>\n" + 
+						"    <td>" + result.getTransitCost()+ "</td>\n" + 
 						"    <td>" + result.getBusTime() + "</td>\n" + 
 						"    <td>" + result.getBusCO2()+ "</td>\n" + 
 						"  </tr>\n" + 
