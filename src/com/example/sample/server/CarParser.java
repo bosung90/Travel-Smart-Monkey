@@ -1,16 +1,16 @@
 package com.example.sample.server;
 
 import java.io.FileReader;
-import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 import com.example.sample.shared.CarData;
 
 public class CarParser {
 	
-	public static ArrayList<CarData> cars = new ArrayList<CarData>();
+	public static Hashtable<String, CarData> cars = new Hashtable<String, CarData>();
 	
-	public static ArrayList<CarData> parseFuelConsumption(String filepath){
+	public static Hashtable<String, CarData> parseFuelConsumption(String filepath){
 		try {
 			Scanner scanner = new Scanner(new FileReader(filepath));
 			String line;
@@ -20,7 +20,7 @@ public class CarParser {
 			while (scanner.hasNextLine()){
 				line = scanner.nextLine(); // get the line
 				String[] results = line.split(","); // split it on ,
-				if(results[0].trim().isEmpty()){
+				if(results.length < 13){
 					scanner.close();
 					return cars;					
 				}
@@ -35,7 +35,8 @@ public class CarParser {
 				
 				// create the car data
 				data = new CarData(year,make,model,fuelConsumption,co2Emission);
-				cars.add(data);
+				String key = year +" "+ make +" "+ model;
+				cars.put(key, data);
 			}
 			scanner.close();
 		}

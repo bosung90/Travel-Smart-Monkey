@@ -15,6 +15,8 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
 /**
@@ -29,6 +31,7 @@ public class Sample implements EntryPoint {
 	private final TextBox _startingPoint = TextBox.wrap(DOM.getElementById("startingPoint"));
 	private final TextBox _destination = TextBox.wrap(DOM.getElementById("destination"));
 	private final Button _searchButton = Button.wrap(DOM.getElementById("searchBtn"));
+	private final HTML table = new HTML();
 	//==========================================
 	
 	private Geolocation _geoposition; 
@@ -56,7 +59,54 @@ public class Sample implements EntryPoint {
 	 */
 	public void onModuleLoad(){
 		RefreshCurrentGPSLocation();
-//		searchButton.addClickHandler(new SearchButtonClickHandler());
+		_searchButton.addClickHandler(new SearchButtonClickHandler());
+		
+		table.setHTML("	<table class=\"table table-bordered\">\n" + 
+				"	<tr>\n" + 
+				"    <td>Mode of Travel</td>\n" + 
+				"    <td>Pros</td>		\n" + 
+				"    <td>Cons</td>\n" + 
+				"    <td>Cost</td>\n" + 
+				"    <td>Time</td>\n" + 
+				"    <td>CO2 Emission</td>\n" + 
+				"  </tr>\n" + 
+				"  <tr>\n" + 
+				"    <td>Car</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"  <tr>\n" + 
+				"    <td>Bus</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"  <tr>\n" + 
+				"      <td>Bicyle</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"    <tr>\n" + 
+				"      <td>Walk</td>\n" + 
+				"    <td></td>		\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"    <td></td>\n" + 
+				"  </tr>\n" + 
+				"\n" + 
+				"</table>");
+		
+		RootPanel.get("travelTable").add(table);
+		
 		
 		
 		//		final Button sendButton = new Button("Send");
@@ -106,48 +156,92 @@ public class Sample implements EntryPoint {
 		//		});
 
 
-//		travelSmartService = new AsyncCallback<ResultFields>(){
-//			@Override
-//			public void onFailure(Throwable caught) {
-//				System.out.println(caught.getMessage());
-//			}
-//
-//			@Override
-//			public void onSuccess(ResultFields result) {
-//			}
-//		};
+		travelSmartService = new AsyncCallback<ResultFields>(){
+			@Override
+			public void onFailure(Throwable caught) {
+				System.out.println(caught.getMessage());
+			}
+
+			@Override
+			public void onSuccess(ResultFields result) {
+				RootPanel.get("travelTable").clear();
+				table.setHTML("	<table class=\"table table-bordered\">\n" + 
+						"	<tr>\n" + 
+						"    <td>Mode of Travel</td>\n" + 
+						"    <td>Pros</td>		\n" + 
+						"    <td>Cons</td>\n" + 
+						"    <td>Cost</td>\n" + 
+						"    <td>Time</td>\n" + 
+						"    <td>CO2 Emission</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Car</td>\n" + 
+						"    <td>" + result.getCarPros()+ "</td>\n" + 
+						"    <td>" + result.getCarCons()+ "</td>\n" + 
+						"    <td>" + result.getCarCost() + "</td>\n" + 
+						"    <td>" + result.getCarTime()+ "</td>\n" + 
+						"    <td>" + result.getCarCO2()+ "</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Bus</td>\n" + 
+						"    <td>" + result.getTransitPros()+ "</td>\n" + 
+						"    <td>" + result.getTransitCons()+ "</td>\n" + 
+						"    <td>" + result.getTransitCost()+ "</td>\n" + 
+						"    <td>" + result.getBusTime() + "</td>\n" + 
+						"    <td>" + result.getBusCO2()+ "</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"      <td>Bicyle</td>\n" + 
+						"    <td>"+ result.getBikePros()+ "</td>\n" + 
+						"    <td>" + result.getBikeCons()+ "</td>\n" + 
+						"    <td>" + result.getBikeCost()+"</td>\n" + 
+						"    <td>" + result.getBikeTime()+ "</td>\n" + 
+						"    <td>" + result.getBikeCO2() + "</td>\n" + 
+						"  </tr>\n" + 
+						"    <tr>\n" + 
+						"      <td>Walk</td>\n" + 
+						"    <td>"+ result.getWalkPros()+ "</td>\n" + 
+						"    <td>"+ result.getWalkCons()+ "</td>\n" + 
+						"    <td>"+ result.getWalkCost()+"</td>\n" + 
+						"    <td>" + result.getWalkTime()+"</td>\n" + 
+						"    <td>" + result.getWalkCO2()+ "</td>\n" + 
+						"  </tr>\n" + 
+						"\n" + 
+						"</table>");
+				
+				RootPanel.get("travelTable").add(table);	
+			}
+		};
 	}
 	
-//	private class SearchButtonClickHandler implements ClickHandler {
-//
-//		public void onClick(ClickEvent event) 
-//		{
-//			
-//			Window.alert("click be determined!");
-//			
-//			String car = carModel.getText();
-//			String start = startingPoint.getText();
-//			String end = destination.getText();
-//
-//			SearchFields search = new SearchFields();
-//			
-//			search.setCarType(car);
-//			if(start.trim().isEmpty())
-//			{
-//				search.setStartingPoint(_latitude + "," + _longitude);
-//			}
-//			else
-//			{
-//				search.setStartingPoint(start);
-//			}
-//			search.setDestination(end);
-//			
-//			greetingService.greetServer(search, travelSmartService);
-//			
-////			callGoogleDirectionAPI(start,end);
-//
-//		}
-//	}
+	private class SearchButtonClickHandler implements ClickHandler {
+
+		public void onClick(ClickEvent event) 
+		{
+			
+			Window.alert("click be determined!");
+			
+			String car = _carModel.getText();
+			String start = _startingPoint.getText();
+			String end = _destination.getText();
+
+			SearchFields search = new SearchFields();
+			
+			search.setCarType(car);
+			if(start.trim().isEmpty())
+			{
+				search.setStartingPoint(_latitude + "," + _longitude);
+			}
+			else
+			{
+				search.setStartingPoint(start);
+			}
+			search.setDestination(end);
+			
+			greetingService.greetServer(search, travelSmartService);
+
+		}
+	}
 	
 //	private class RefreshClickHandler implements ClickHandler{
 //		@Override
