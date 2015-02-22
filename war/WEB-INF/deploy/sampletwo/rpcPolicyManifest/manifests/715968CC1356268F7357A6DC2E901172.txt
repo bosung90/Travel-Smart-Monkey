@@ -1,0 +1,2 @@
+serviceClass: com.teamunion.sampletwo.client.GreetingService
+path: 3F6599D1599388EA7DBD0D9278682916.gwt.rpc

@@ -8,17 +8,17 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.example.sample.server.GreetingServiceImpl</servlet-class>
+    <servlet-class>com.teamunion.sampletwo.server.GreetingServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/sample/greet</url-pattern>
+    <url-pattern>/sampletwo/greet</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>Sample.html</welcome-file>
+    <welcome-file>Sampletwo.html</welcome-file>
   </welcome-file-list>
 
 </web-app>
